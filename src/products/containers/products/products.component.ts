@@ -33,5 +33,6 @@ export class ProductsComponent implements OnInit {
 
     //making the action of loading the pizzas (this has to be done, otherwise the pizzas wouldn't load)
     this.store.dispatch(new fromStore.LoadPizzas());
+    this.store.dispatch(new fromStore.LoadToppings());
   }
 }

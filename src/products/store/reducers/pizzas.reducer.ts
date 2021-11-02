@@ -70,6 +70,39 @@ export function reducer(
         loaded: false,
       };
     }
+
+    case fromPizzasAction.UPDATE_PIZZA_SUCCESS:
+    case fromPizzasAction.CREATE_PIZZA_SUCCESS: {
+      //Getting the pizza that was created or updated
+      const pizza = action.payload;
+
+      //Merging the current entities with the new one
+      const entities = {
+        ...state.entities,
+        [pizza.id]: pizza,
+      };
+
+      //Returning the state with the new entities object
+      return {
+        ...state,
+        entities,
+      };
+    }
+
+    case fromPizzasAction.DELETE_PIZZA_SUCCESS: {
+      //Getting the pizza that was deleted
+      const pizza = action.payload;
+
+      //We reference the pizza that we don't want to include as a first parameter
+      //then the second parameter indicates the remaining entities we want to keep
+      const { [pizza.id]: deleted, ...entities } = state.entities;
+      // const { pizzaToDelete, ...remanining } = state.entities;
+
+      return {
+        ...state,
+        entities,
+      };
+    }
   }
 
   return state;
