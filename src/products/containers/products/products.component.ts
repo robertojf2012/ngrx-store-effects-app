@@ -6,6 +6,7 @@ import * as fromStore from "../../store";
 
 @Component({
   selector: "products",
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ["products.component.scss"],
   template: `
     <div class="products">
@@ -32,7 +33,7 @@ export class ProductsComponent implements OnInit {
     this.pizzas$ = this.store.select(fromStore.getAllPizzas);
 
     //making the action of loading the pizzas (this has to be done, otherwise the pizzas wouldn't load)
-    this.store.dispatch(new fromStore.LoadPizzas());
-    this.store.dispatch(new fromStore.LoadToppings());
+    //this.store.dispatch(new fromStore.LoadPizzas());
+    //this.store.dispatch(new fromStore.LoadToppings());
   }
 }

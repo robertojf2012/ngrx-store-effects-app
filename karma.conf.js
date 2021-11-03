@@ -1,33 +1,33 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
 
-module.exports = config => {
+module.exports = (config) => {
   config.set({
-    browsers: ['Chrome'],
-    files: ['./node_modules/es6-shim/es6-shim.min.js', 'karma.entry.js'],
-    frameworks: ['jasmine'],
-    mime: { 'text/x-typescript': ['ts'] },
+    browsers: ["Firefox"],
+    files: ["./node_modules/es6-shim/es6-shim.min.js", "karma.entry.js"],
+    frameworks: ["jasmine"],
+    mime: { "text/x-typescript": ["ts"] },
     preprocessors: {
-      'karma.entry.js': ['webpack', 'sourcemap'],
-      '*.js': ['sourcemap'],
-      '**/*.spec.ts': ['sourcemap', 'webpack'],
+      "karma.entry.js": ["webpack", "sourcemap"],
+      "*.js": ["sourcemap"],
+      "**/*.spec.ts": ["sourcemap", "webpack"],
     },
-    reporters: ['spec'],
+    reporters: ["spec"],
     webpack: {
       context: __dirname,
-      devtool: 'sourcemap',
+      devtool: "sourcemap",
       module: {
         rules: [
           {
             test: /\.html$/,
-            loaders: ['raw-loader'],
+            loaders: ["raw-loader"],
           },
           {
             test: /\.scss$/,
-            loaders: ['raw-loader', 'sass-loader'],
+            loaders: ["raw-loader", "sass-loader"],
           },
           {
             test: /\.ts$/,
-            loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+            loaders: ["awesome-typescript-loader", "angular2-template-loader"],
           },
         ],
       },
@@ -39,7 +39,7 @@ module.exports = config => {
         }),
       ],
       resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: [".ts", ".js"],
       },
     },
   });
