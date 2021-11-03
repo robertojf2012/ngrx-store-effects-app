@@ -32,6 +32,7 @@ export class ProductsComponent implements OnInit {
     //selecting all the pizzas and getting the observable
     this.pizzas$ = this.store.select(fromStore.getAllPizzas);
 
+    //The actions were moved to the guards
     //making the action of loading the pizzas (this has to be done, otherwise the pizzas wouldn't load)
     //this.store.dispatch(new fromStore.LoadPizzas());
     //this.store.dispatch(new fromStore.LoadToppings());
